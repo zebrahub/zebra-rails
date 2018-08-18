@@ -29,6 +29,11 @@ gem 'puma', '~> 3.7'
 gem 'annotate'
 # pundit
 gem "pundit"
+# oauth
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-github'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
