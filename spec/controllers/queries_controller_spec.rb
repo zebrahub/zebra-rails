@@ -9,7 +9,6 @@ RSpec.describe QueriesController, type: :controller do
     let!(:query2) {
       create(:query, user: user)
     }
-
     it 'returns correct number of queries' do
       user.save
       get :index, { params: {user_id: user.id } }
@@ -19,7 +18,13 @@ RSpec.describe QueriesController, type: :controller do
   end
 
   describe '#create' do
-
+    let(:user) { create(:user, email: 'aaa@aaa.com', password: 'aaaaaa') }
+    it 'save query for a user' do
+      user.save
+      post :create, { params: { query: { title: 'aaa', user_id: user.id } } }
+      expect(response).to be_success
+      expect(Query.count).to eq(1)
+    end
   end
 
   describe '#update' do

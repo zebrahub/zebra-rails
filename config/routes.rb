@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get '/auth/:provider/callback' => 'sessions#create'
   get '/queries' => 'queries#index'
+  post '/queries' => 'queries#create'
 end
 
 # == Route Map
