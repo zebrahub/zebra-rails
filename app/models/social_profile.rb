@@ -20,7 +20,8 @@
 #
 # Indexes
 #
-#  index_social_profiles_on_user_id  (user_id)
+#  index_social_profiles_on_provider_and_uid  (provider,uid) UNIQUE
+#  index_social_profiles_on_user_id           (user_id)
 #
 # Foreign Keys
 #

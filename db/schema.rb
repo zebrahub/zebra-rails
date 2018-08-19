@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20180819024836) do
     t.text "raw_info"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["provider", "uid"], name: "index_social_profiles_on_provider_and_uid", unique: true
     t.index ["user_id"], name: "index_social_profiles_on_user_id"
   end
 
