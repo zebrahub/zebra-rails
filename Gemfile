@@ -42,6 +42,9 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'database_cleaner'
+  #dotenv
+  gem 'dotenv-rails', require: 'dotenv/rails-now'
+
 end
 
 group :development do
