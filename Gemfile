@@ -28,11 +28,10 @@ gem 'puma', '~> 3.7'
 # annotate
 gem 'annotate'
 # pundit
-gem "pundit"
+gem 'pundit'
 # oauth
 gem 'devise'
 gem 'omniauth'
-gem 'omniauth-facebook'
 gem 'omniauth-github'
 
 group :development, :test do
