@@ -33,4 +33,15 @@ class User < ApplicationRecord
   def social_profile(provider)
     social_profiles.select { |sp| sp.provider == provider.to_s }.first
   end
+
+  class << self
+    def find_or_create_from_auth_hash(auth_hash)
+      profile = SocialProfile.find_or_create_by(uid: auth_hash[:uid], provider: auth_hash[:provider])
+      if profile
+        user = profile.user
+      else
+        user = User.create
+      end
+    end
+  end
 end
