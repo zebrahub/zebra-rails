@@ -28,7 +28,11 @@ gem 'puma', '~> 3.7'
 # annotate
 gem 'annotate'
 # pundit
-gem "pundit"
+gem 'pundit'
+# oauth
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-github'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -37,6 +41,9 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'database_cleaner'
+  #dotenv
+  gem 'dotenv-rails', require: 'dotenv/rails-now'
+
 end
 
 group :development do

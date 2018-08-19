@@ -16,6 +16,8 @@ require "rails/test_unit/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+Dotenv::Railtie.load
+
 module ZebraRails
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
@@ -40,5 +42,9 @@ module ZebraRails
         controller_specs: true,
         request_specs: false
     end
+    config.middleware.use Rack::MethodOverride
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use ActionDispatch::Session::CookieStore
+    config.middleware.use ActionDispatch::Flash
   end
 end
