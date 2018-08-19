@@ -10,6 +10,14 @@ class QueriesController < ApplicationController
     end
   end
 
+  def update
+    @query = Query.find_by(id: params[:id])
+    if @query
+      @query.update_attributes(query_params)
+      render json: @query
+    end
+  end
+
   private
     def query_params
       params.require(:query).permit(

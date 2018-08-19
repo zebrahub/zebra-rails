@@ -46,6 +46,8 @@ group :development, :test do
 
   # spec
   gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'pry-doc'
 
 end
 
