@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   get '/auth/:provider/callback' => 'sessions#create'
+  get '/queries' => 'queries#index'
+  post '/queries' => 'queries#create'
+  put '/queries/:id' => 'queries#update'
+  delete '/queries/:id' => 'queries#destroy'
 end
 
 # == Route Map

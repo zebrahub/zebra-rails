@@ -29,6 +29,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :social_profiles, dependent: :destroy
+  has_many :queries
 
   def social_profile(provider)
     social_profiles.select { |sp| sp.provider == provider.to_s }.first
