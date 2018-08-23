@@ -45,6 +45,18 @@ RSpec.describe QueriesController, type: :controller do
   end
 
   describe '#delete' do
+    let(:user) { create(:user, email: 'aaa@aaa.com', password: 'aaaaaa') }
+    let!(:query1) {
+      create(:query, user: user)
+    }
+
+    it 'delete query for a user' do
+      user.save
+      expect(Query.where(id: query1.id).size).to eq(1)
+      delete :destroy, params: { id: query1.id }
+      expect(response).to be_success
+      expect(Query.where(id: query1.id).size).to eq(0)
+    end
 
   end
 end

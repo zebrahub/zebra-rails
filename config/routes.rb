@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/queries' => 'queries#index'
   post '/queries' => 'queries#create'
   put '/queries/:id' => 'queries#update'
+  delete '/queries/:id' => 'queries#destroy'
 end
 
 # == Route Map
