@@ -11,26 +11,22 @@ class QueriesController < ApplicationController
   end
 
   def update
-    unless params[:id]
-      render status: :bad_request
-    end
+    render status: :bad_request and return if params[:id].length <=0
+
     @query = Query.find_by(id: params[:id])
-    unless @query
-      head :no_content
-    end
+    head :no_content and return unless @query
+
     if @query.update_attributes(query_params)
       render json: @query
     end
   end
 
   def destroy
-    unless params[:id]
-      render status: :bad_request
-    end
+    render status: :bad_request and return if params[:id].length <= 0
+
     @query = Query.find_by(id: params[:id])
-    unless @query
-      head :no_content
-    end
+    head :no_content and return unless @query
+
     @query.destroy
     render json: @query, status: :ok
   end

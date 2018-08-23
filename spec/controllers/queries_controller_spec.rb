@@ -58,5 +58,13 @@ RSpec.describe QueriesController, type: :controller do
       expect(Query.where(id: query1.id).size).to eq(0)
     end
 
+    it 'returns 400 when param is empty.' do
+      user.save
+      expect(Query.where(id: query1.id).size).to eq(1)
+      delete :destroy, params: { id: "" }
+      expect(response.status).to eq 400
+      expect(Query.where(id: query1.id).size).to eq(1)
+    end
+
   end
 end
