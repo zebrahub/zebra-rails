@@ -1,6 +1,7 @@
 class QueriesController < ApplicationController
   def index
-    @queries = Query.where(user_id: params[:user_id])
+    @queries = Query.all
+    render json: @queries
   end
 
   def create

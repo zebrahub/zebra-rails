@@ -47,4 +47,13 @@ Rails.application.configure do
 
   # devise
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  # TODO: set cors
+  config.middleware.insert_before 0, Rack::Cors do
+    allow do
+      origins '*'
+      resource '*', headers: :any, methods: [:get, :post, :options]
+    end
+  end
+
 end
